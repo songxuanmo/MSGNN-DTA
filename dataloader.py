@@ -1,4 +1,4 @@
-﻿import pandas as pd
+import pandas as pd
 import networkx as nx
 import json, pickle
 from collections import OrderedDict
@@ -310,9 +310,9 @@ def create_DTA_dataset(dataset='davis'):
 
     test_drugs, test_prots, test_Y = np.asarray(test_drugs), np.asarray(test_prots), np.asarray(test_Y)
 
-    # train_data = DTADataset(root='data', dataset=dataset + '_' + 'train', drug_smiles=train_drugs, target_sequence=train_prots, y=train_Y,
-    #                         smile_graph=smile_graph,target_graph=target_graph, clique_graph=clique_graph)
-    train_data=[]
+    train_data = DTADataset(root='data', dataset=dataset + '_' + 'train', drug_smiles=train_drugs, target_sequence=train_prots, y=train_Y,
+                            smile_graph=smile_graph,target_graph=target_graph, clique_graph=clique_graph)
+    
     test_data = DTADataset(root='data', dataset=dataset + '_' + 'test', drug_smiles=test_drugs, target_sequence=test_prots, y=test_Y,
                            smile_graph=smile_graph, target_graph=target_graph, clique_graph=clique_graph)
     return train_data, test_data
