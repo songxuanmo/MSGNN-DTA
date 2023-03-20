@@ -43,13 +43,11 @@ def predicting(model, device, dataloader):
             total_labels = torch.cat((total_labels,data_mol.y.view(-1, 1).cpu()), 0)
     return total_labels.numpy().flatten(), total_preds.numpy().flatten()
 
-datasets = [['davis', 'kiba'][0]]
-cuda_name = ['cuda:0', 'cuda:1'][0]
-# datasets = [['davis', 'kiba'][int(sys.argv[1])]]
-# cuda_name = ['cuda:0', 'cuda:1'][int(sys.argv[2])]
+datasets = [['davis', 'kiba'][int(sys.argv[1])]]
+cuda_name = ['cuda:0', 'cuda:1'][int(sys.argv[2])]
 modeling = [Graph_GAT][0]
 model_st = modeling.__name__
-BATCH_SIZE = 2
+BATCH_SIZE = 512
 LR = 0.0005
 
 params = dict(
